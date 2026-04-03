@@ -29,18 +29,18 @@ There is **no separate upload command**. A skill appears in the directory when p
 
 ## Commands worth memorizing
 
-| Command | Purpose |
-|--------|---------|
-| `npx skills add <owner/repo>` | Install skill(s) from a repo (interactive: pick agents, symlink vs copy). |
-| `npx skills add <owner/repo> --list` | List skills in the repo **without** installing. |
-| `npx skills add <owner/repo> --skill <name> -y` | Install a specific skill non-interactively. |
-| `npx skills add <url>` | Install from full GitHub/GitLab URL or path to a folder in the tree. |
-| `npx skills list` (alias: `ls`) | List installed skills (`-g` for global only). |
-| `npx skills find [query]` | Search skills (interactive or keyword). |
-| `npx skills check` | See if installed skills have updates. |
-| `npx skills update` | Update all installed skills to latest. |
-| `npx skills init [name]` | Scaffold a new `SKILL.md` in the current dir or a subfolder. |
-| `npx skills remove <name>` | Remove installed skills from agents (see `npx skills remove --help`). |
+| Command                                         | Purpose                                                                   |
+| ----------------------------------------------- | ------------------------------------------------------------------------- |
+| `npx skills add <owner/repo>`                   | Install skill(s) from a repo (interactive: pick agents, symlink vs copy). |
+| `npx skills add <owner/repo> --list`            | List skills in the repo **without** installing.                           |
+| `npx skills add <owner/repo> --skill <name> -y` | Install a specific skill non-interactively.                               |
+| `npx skills add <url>`                          | Install from full GitHub/GitLab URL or path to a folder in the tree.      |
+| `npx skills list` (alias: `ls`)                 | List installed skills (`-g` for global only).                             |
+| `npx skills find [query]`                       | Search skills (interactive or keyword).                                   |
+| `npx skills check`                              | See if installed skills have updates.                                     |
+| `npx skills update`                             | Update all installed skills to latest.                                    |
+| `npx skills init [name]`                        | Scaffold a new `SKILL.md` in the current dir or a subfolder.              |
+| `npx skills remove <name>`                      | Remove installed skills from agents (see `npx skills remove --help`).     |
 
 **Scope:** Default is **project** install; use `-g` / `--global` for user-wide installs.
 
@@ -48,7 +48,11 @@ There is **no separate upload command**. A skill appears in the directory when p
 
 ## Related links
 
-- [skills.sh](https://skills.sh) — browse / leaderboard  
-- [Documentation](https://skills.sh/docs)  
-- [CLI reference](https://skills.sh/docs/cli)  
+- [skills.sh](https://skills.sh) — browse / leaderboard
+- [Documentation](https://skills.sh/docs)
+- [CLI reference](https://skills.sh/docs/cli)
 - [Agent Skills spec](https://agentskills.io)
+
+```
+npx skills add https://github.com/spaghetti-coder-yyz/skills/tree/main/auto-docs
+```

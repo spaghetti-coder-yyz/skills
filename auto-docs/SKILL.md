@@ -78,8 +78,8 @@ Function signatures, parameters, return types, and side effects (omit if not app
 
 ## Related Files
 
-| File | Role |
-|------|------|
+| File              | Role                                |
+| ----------------- | ----------------------------------- |
 | `path/to/file.ts` | What this file does in this context |
 
 ---
@@ -95,32 +95,52 @@ Links to related `/docs/*.md` files or external documentation.
 
 Include a diagram whenever there is a flow, relationship, or state to describe. Choose the right type:
 
-| Diagram | Use when |
-|---------|----------|
-| `flowchart TD` | Data flow or processing steps |
+| Diagram           | Use when                                     |
+| ----------------- | -------------------------------------------- |
+| `flowchart TD`    | Data flow or processing steps                |
 | `sequenceDiagram` | Request/response or service-to-service calls |
-| `erDiagram` | Database table relationships |
-| `stateDiagram-v2` | Status transitions or state machines |
+| `erDiagram`       | Database table relationships                 |
+| `stateDiagram-v2` | Status transitions or state machines         |
 
 ---
 
-## Step 4 — Add @docs back-references to source files
+## Step 4 — Write full JSDoc and add @docs back-reference to every related source file
 
-For every file in the **Related Files** table, add or update its file-level JSDoc to include:
+For every file in the **Related Files** table:
 
-```ts
- * @docs /docs/<filename>.md
-```
+1. **Read the full file** to understand its purpose, behaviour, key functions, dependencies, and any files that depend on it.
+2. **Write or replace the file-level JSDoc block** at the top of the file. The JSDoc must describe the file broadly — not just in the context of the feature being documented — so it remains accurate as the codebase grows. Include:
+   - `@description` — what the file does and its role in the overall system
+   - `@behavior` — key steps, logic, or side effects (omit if trivial)
+   - `@depends-on` — other files or services this file relies on (excluding standard library imports)
+   - `@depended-by` — files that import or call into this file
+   - `@example` — usage example for hooks, actions, utilities, or reusable modules
+   - `@docs` — path to the linked documentation file
+3. If the file already has a JSDoc, update it rather than replace it — preserve any existing tags that are still accurate and add missing ones.
 
-Full example if the file has no JSDoc yet:
+**JSDoc template:**
 
 ```ts
 /**
- * <Brief description of what the file does.>
+ * @description <What this file does and its role in the system.>
+ *
+ * @behavior
+ * - <Key step or behaviour 1>
+ * - <Key step or behaviour 2>
+ *
+ * @depends-on <path/to/dependency.ts>, <ExternalService>
+ * @depended-by <path/to/consumer.ts>
+ *
+ * @example
+ * // How to use this module
+ * import { something } from './this-file'
+ * something()
  *
  * @docs /docs/<filename>.md
  */
 ```
+
+Omit any tag that is not applicable (e.g. skip `@example` for a page component, skip `@behavior` for a simple config file).
 
 Confirm to the user which files were updated.
 

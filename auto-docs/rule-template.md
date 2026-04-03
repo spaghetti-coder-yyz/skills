@@ -18,8 +18,8 @@ If a file you are editing contains a `@docs` tag in its JSDoc — for example:
  */
 ```
 
-You MUST:
+You MUST do all of the following as part of the same task — not as a follow-up:
 
-1. Read the linked documentation file before finishing your task.
-2. Update any sections affected by your changes — diagrams, usage examples, API reference, Related Files table.
-3. Do this as part of the same task, not as a follow-up.
+1. **Update the JSDoc in the file you just edited.** Refresh any tags affected by your changes — `@description`, `@behavior`, `@depends-on`, `@depended-by`, `@example`. Keep the `@docs` tag intact.
+2. **Read the linked `/docs` file.**
+3. **Update any sections of the doc affected by your changes** — diagrams, usage examples, API reference, Related Files table, Overview.
