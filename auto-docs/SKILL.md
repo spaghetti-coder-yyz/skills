@@ -102,6 +102,17 @@ Include a diagram whenever there is a flow, relationship, or state to describe. 
 | `erDiagram`       | Database table relationships                 |
 | `stateDiagram-v2` | Status transitions or state machines         |
 
+### Mermaid syntax rules (follow strictly)
+
+- **Node labels** containing `[]`, `()`, `{}`, `/`, or `"` MUST be wrapped in double-quotes:
+  `A["label with [] or ()"]`
+- **Edge labels** containing `[]`, `()`, `/`, or special characters MUST be quoted:
+  `G -- "null / undefined" --> J`
+- **Diamond nodes** `{label}` must NOT contain parentheses inside the braces — use plain words only:
+  ✅ `{showIf returns true?}` ❌ `{Evaluate showIf(fields)}`
+- Do NOT use backticks, colons, or angle brackets inside any node or edge label.
+- Prefer plain descriptive English in labels over code expressions.
+
 ---
 
 ## Step 4 — Write full JSDoc and add @docs back-reference to every related source file
@@ -155,3 +166,4 @@ Confirm to the user which files were updated.
 - [ ] Related Files table complete
 - [ ] Every listed source file has a `@docs` tag in its JSDoc
 - [ ] `documentation-sync.mdc` rule exists in `.cursor/rules/`
+- [ ] Mermaid diagram self-reviewed: no `()` inside `{}` nodes, no unquoted `[]` or `/` in labels
