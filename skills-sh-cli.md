@@ -55,4 +55,5 @@ There is **no separate upload command**. A skill appears in the directory when p
 
 ```
 npx skills add https://github.com/spaghetti-coder-yyz/skills/tree/main/auto-docs
+npx skills add https://github.com/spaghetti-coder-yyz/skills/tree/main/codebase-docs
 ```
